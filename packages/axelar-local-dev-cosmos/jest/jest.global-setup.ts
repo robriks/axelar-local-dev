@@ -3,7 +3,7 @@ import { startChains } from "../src/setup";
 async function waitForRpc(chain: string, timeout = 120000): Promise<void> {
   const start = Date.now();
   const interval = 3000;
-  const url = `http://localhost/${chain}-rpc/health`;
+  const url = `http://127.0.0.1/${chain}-rpc/health`;
   let status = 0;
   while (Date.now() - start < timeout) {
     try {

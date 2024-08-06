@@ -12,7 +12,7 @@ export const defaultWasmConfig: ChainConfig = {
 export const defaultWasmChainInfo: Omit<CosmosChainInfo, "owner"> = {
   prefix: "wasm",
   denom: "uwasm",
-  lcdUrl: "http://localhost/wasm-lcd",
-  rpcUrl: "http://localhost/wasm-rpc",
-  wsUrl: "ws://localhost/wasm-rpc/websocket",
+  lcdUrl: "http://127.0.0.1/wasm-lcd",
+  rpcUrl: "http://127.0.0.1/wasm-rpc",
+  wsUrl: "ws://127.0.0.1/wasm-rpc/websocket",
 };

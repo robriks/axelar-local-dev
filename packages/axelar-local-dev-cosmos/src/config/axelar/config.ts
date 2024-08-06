@@ -40,7 +40,7 @@ export const defaultAxelarConfig: ChainConfig = {
 export const defaultAxelarChainInfo: Omit<CosmosChainInfo, "owner"> = {
   prefix: "axelar",
   denom: "uaxl",
-  lcdUrl: "http://localhost/axelar-lcd",
-  rpcUrl: "http://localhost/axelar-rpc",
-  wsUrl: "ws://localhost/axelar-rpc/websocket",
+  lcdUrl: "http://127.0.0.1/axelar-lcd",
+  rpcUrl: "http://127.0.0.1/axelar-rpc",
+  wsUrl: "ws://127.0.0.1/axelar-rpc/websocket",
 };

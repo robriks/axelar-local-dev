@@ -46,9 +46,9 @@ export class CosmosClient {
     const defaultDenom = chain === "wasm" ? "uwasm" : "uaxl";
     const chainInfo = {
       denom: config.denom || defaultDenom,
-      lcdUrl: config.lcdUrl || `http://localhost/${chain}-lcd`,
-      rpcUrl: config.rpcUrl || `http://localhost/${chain}-rpc`,
-      wsUrl: config.wsUrl || `ws://localhost/${chain}-rpc/websocket`,
+      lcdUrl: config.lcdUrl || `http://127.0.0.1/${chain}-lcd`,
+      rpcUrl: config.rpcUrl || `http://127.0.0.1/${chain}-rpc`,
+      wsUrl: config.wsUrl || `ws://127.0.0.1/${chain}-rpc/websocket`,
     };
     gasPrice = gasPrice || GasPrice.fromString(`1${chainInfo.denom}`);
 

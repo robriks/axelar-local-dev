@@ -9,12 +9,12 @@ setLogger(() => undefined);
 describe("DockerService", () => {
   it("should start containers successfully", async () => {
     const testLcd = "cosmos/base/tendermint/v1beta1/node_info";
-    const healthAxelarRpc = await fetch("http://localhost/axelar-rpc");
+    const healthAxelarRpc = await fetch("http://127.0.0.1/axelar-rpc");
     const healthAxelarLcd = await fetch(
-      `http://localhost/axelar-lcd/${testLcd}`
+      `http://127.0.0.1/axelar-lcd/${testLcd}`
     );
-    const healthWasmRpc = await fetch("http://localhost/wasm-rpc");
-    const healthWasmLcd = await fetch(`http://localhost/wasm-lcd/${testLcd}`);
+    const healthWasmRpc = await fetch("http://127.0.0.1/wasm-rpc");
+    const healthWasmLcd = await fetch(`http://127.0.0.1/wasm-lcd/${testLcd}`);
 
     expect(healthAxelarRpc.status).toBe(200);
     expect(healthAxelarLcd.status).toBe(200);

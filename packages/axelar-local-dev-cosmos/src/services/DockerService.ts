@@ -45,9 +45,9 @@ export class DockerService {
     await this.waitForRpc(chain, options?.rpcWaitTimeout);
     await this.waitForLcd(chain, options?.lcdWaitTimeout);
 
-    const rpcUrl = `http://localhost/${chain}-rpc`;
-    const lcdUrl = `http://localhost/${chain}-lcd`;
-    const wsUrl = `ws://localhost/${chain}-rpc/websocket`;
+    const rpcUrl = `http://127.0.0.1/${chain}-rpc`;
+    const lcdUrl = `http://127.0.0.1/${chain}-lcd`;
+    const wsUrl = `ws://127.0.0.1/${chain}-rpc/websocket`;
 
     logger.log(`RPC server for ${chain} is started at ${rpcUrl}`);
     logger.log(`LCD server for ${chain} is started at ${lcdUrl}`);
@@ -75,7 +75,7 @@ export class DockerService {
 
     logger.log("Starting traefik container...");
     await compose.upOne("traefik", config);
-    logger.log("Traefik started at http://localhost:8080");
+    logger.log("Traefik started at http://127.0.0.1:8080");
   }
 
   async stopAll() {
@@ -122,7 +122,7 @@ export class DockerService {
   async waitForRpc(chain: CosmosChain, timeout = 120000): Promise<void> {
     const start = Date.now();
     const interval = 3000;
-    const url = `http://localhost/${chain}-rpc/health`;
+    const url = `http://127.0.0.1/${chain}-rpc/health`;
     let status = 0;
     while (Date.now() - start < timeout) {
       try {
@@ -144,7 +144,7 @@ export class DockerService {
     const testUrl = "cosmos/base/tendermint/v1beta1/node_info";
     const start = Date.now();
     const interval = 3000;
-    const url = `http://localhost/${chain}-lcd/${testUrl}`;
+    const url = `http://127.0.0.1/${chain}-lcd/${testUrl}`;
     let result, network;
     while (Date.now() - start < timeout) {
       try {

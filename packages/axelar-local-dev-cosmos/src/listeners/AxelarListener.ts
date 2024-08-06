@@ -16,7 +16,7 @@ export class AxelarListener {
 
   constructor(config: Pick<CosmosChainInfo, "wsUrl">) {
     this.wsMap = new Map();
-    this.wsUrl = config.wsUrl || `ws://localhost/axelar-rpc/websocket`;
+    this.wsUrl = config.wsUrl || `ws://127.0.0.1/axelar-rpc/websocket`;
   }
 
   private getOrInit(topicId: string) {

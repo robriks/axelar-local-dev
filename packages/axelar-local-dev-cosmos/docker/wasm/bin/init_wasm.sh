@@ -14,7 +14,7 @@ wasmd init "$MONIKER" --chain-id ${CHAIN_ID} --home ${HOME} > /dev/null 2>&1 && 
 # edit the app.toml file to enable the API and swagger
 sed -i '/\[api\]/,/\[/ s/enable = false/enable = true/' "$HOME"/config/app.toml
 sed -i '/\[api\]/,/\[/ s/swagger = false/swagger = true/' "$HOME"/config/app.toml
-sed -i '/\[api\]/,/\[/ s/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/0.0.0.0:1317"/' "$HOME"/config/app.toml
+sed -i '/\[api\]/,/\[/ s/address = "tcp:\/\/127.0.0.1:1317"/address = "tcp:\/\/0.0.0.0:1317"/' "$HOME"/config/app.toml
 
 # this is essential for sub-1s block times (or header times go crazy)
 sed -i 's/"time_iota_ms": "1000"/"time_iota_ms": "10"/' "$HOME"/config/genesis.json
